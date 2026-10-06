@@ -77,6 +77,10 @@ If no browser is signed in, the only ask is "open the browser and sign in".
 "Read docs/handoffs/<file>.md and docs/project-maps/<slug>.html, then propose sessions for the
 tickets and start the first one."
 
+Send it yourself, in the browser: wait for the project page to finish loading, click the prompt box,
+type, and zoom to check the text is in the box before pressing Enter. Typing sent while the page is
+still loading is dropped without an error.
+
 ## Traps
 
 - Cloud sessions can't see your local skills, subagents, or notes. Put what matters in the

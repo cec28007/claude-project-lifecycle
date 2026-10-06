@@ -1,0 +1,8 @@
+{
+  "name": "project-manager",
+  "version": "1.0.0",
+  "description": "Vet ideas, write one-page project briefs, kick off Claude Code projects, and keep a live progress map (cards + timeline) for each one.",
+  "author": { "name": "cec28007" },
+  "license": "MIT",
+  "keywords": ["project-management", "planning", "gantt", "skills", "subagent"]
+}

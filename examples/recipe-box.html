@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Recipe Box map</title>
+<!-- Example only. The project, people, dates and pull requests below are made up. -->
+<style>
+:root{--bg:#f7f7f5;--card:#fff;--ink:#1d2327;--muted:#5d666d;--line:#e2e2de;--done:#2f855a;--prog:#2b6cb0;--stuck:#c53030;--todo:#8a939a;--warnbg:#fff4e0;--warn:#9a5b00;--today:#c53030}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15181b;--card:#1e2226;--ink:#eceeef;--muted:#a3abb2;--line:#30363b;--done:#68d391;--prog:#7fb2f0;--stuck:#fc8181;--todo:#7d868d;--warnbg:#3a2c12;--warn:#ffcf80;--today:#fc8181}}
+:root[data-theme="dark"]{--bg:#15181b;--card:#1e2226;--ink:#eceeef;--muted:#a3abb2;--line:#30363b;--done:#68d391;--prog:#7fb2f0;--stuck:#fc8181;--todo:#7d868d;--warnbg:#3a2c12;--warn:#ffcf80;--today:#fc8181}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:980px;margin:0 auto;padding:24px 16px 48px}
+h1{margin:0;font-size:1.6rem}.sub{color:var(--muted);margin:2px 0 18px}
+.strip{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;gap:4px;margin-bottom:14px}
+.wait{background:var(--warnbg);color:var(--warn);border-radius:10px;padding:12px 16px;margin-bottom:18px}
+.wait h2{font-size:1rem;margin:0 0 4px}.wait ul{margin:0;padding-left:18px}
+.toggle{display:flex;gap:8px;margin-bottom:16px}
+.toggle button{font:inherit;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.toggle button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--todo);border-radius:8px;padding:12px 14px}
+.card.done{border-left-color:var(--done)}.card.prog{border-left-color:var(--prog)}.card.stuck{border-left-color:var(--stuck)}
+.card h3{margin:0 0 4px;font-size:1rem}.card p{margin:0;color:var(--muted);font-size:.92rem}
+.tag{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;font-weight:700}
+.done .tag{color:var(--done)}.prog .tag{color:var(--prog)}.stuck .tag{color:var(--stuck)}.todo .tag{color:var(--todo)}
+.new{font-size:.72rem;background:var(--prog);color:var(--bg);border-radius:4px;padding:0 5px;margin-left:6px}
+.gantt-wrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px}
+.gantt{min-width:640px;position:relative}
+.row{display:grid;grid-template-columns:150px 1fr;align-items:center;height:32px}
+.row .name{font-size:.88rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:8px}
+.track{position:relative;height:100%;border-left:1px solid var(--line)}
+.bar{position:absolute;top:8px;height:16px;border-radius:4px}
+.bar.done{background:var(--done)}.bar.prog{background:var(--prog);border-radius:4px 0 0 4px}
+.axis{display:grid;grid-template-columns:150px 1fr;font-size:.75rem;color:var(--muted)}
+.axis .ticks{position:relative;height:18px}.axis .ticks span{position:absolute;transform:translateX(-50%)}
+.today{position:absolute;top:0;bottom:0;width:2px;background:var(--today)}
+.ms{position:absolute;top:9px;width:14px;height:14px;background:var(--ink);transform:translateX(-50%) rotate(45deg)}
+.unsched{color:var(--muted);font-size:.9rem;margin-top:10px}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<main>
+<h1>Recipe Box</h1>
+<p class="sub">A small app to save and search family recipes. Map drawn 2026-03-18. Example data.</p>
+
+<div class="strip">
+<div><strong>Next milestone:</strong> M2 "Search works" — 2 tickets left, target 2026-03-27.</div>
+<div><strong>Next step:</strong> Finish ticket 4, full-text search over titles and ingredients.</div>
+</div>
+
+<div class="wait">
+<h2>Waiting on the owner</h2>
+<ul>
+<li>Pick the hosting plan (free tier or the $5 plan). Default if no answer: free tier.</li>
+<li>Release to the live site — needs the owner's go, will not proceed by default.</li>
+</ul>
+</div>
+
+<div class="toggle" role="group" aria-label="View">
+<button type="button" data-view="cards" aria-pressed="true">Cards</button>
+<button type="button" data-view="timeline" aria-pressed="false">Timeline</button>
+</div>
+
+<section id="cards">
+<div class="grid">
+<div class="card done"><span class="tag">Done</span><h3>1. Recipe data model</h3><p>Merged in pull request #3.</p></div>
+<div class="card done"><span class="tag">Done</span><h3>2. Add and edit recipes</h3><p>Merged in pull request #6.</p></div>
+<div class="card done"><span class="tag">Done</span><span class="new">changed</span><h3>3. Photo upload</h3><p>Merged in pull request #9.</p></div>
+<div class="card prog"><span class="tag">In progress</span><h3>4. Search</h3><p>Pull request #11 open, tests passing.</p></div>
+<div class="card stuck"><span class="tag">Stuck</span><h3>5. Hosting</h3><p>Waiting on the owner: hosting plan choice.</p></div>
+<div class="card todo"><span class="tag">Not started</span><h3>6. Share a recipe by link</h3><p>No target date in the brief.</p></div>
+</div>
+</section>
+
+<section id="timeline" hidden>
+<div class="gantt-wrap"><div class="gantt">
+<!-- Axis: 2026-03-01 to 2026-03-31 (30 days). left% = days from 03-01 / 30 * 100 -->
+<div class="axis"><span></span><div class="ticks"><span style="left:0%">Mar 1</span><span style="left:23.3%">Mar 8</span><span style="left:46.7%">Mar 15</span><span style="left:70%">Mar 22</span><span style="left:93.3%">Mar 29</span></div></div>
+<div class="row"><div class="name">1. Data model</div><div class="track"><div class="bar done" style="left:3.3%;width:10%"></div></div></div>
+<div class="row"><div class="name">2. Add and edit</div><div class="track"><div class="bar done" style="left:10%;width:20%"></div></div></div>
+<div class="row"><div class="name">3. Photo upload</div><div class="track"><div class="bar done" style="left:26.7%;width:23.3%"></div></div></div>
+<div class="row"><div class="name">4. Search</div><div class="track"><div class="bar prog" style="left:43.3%;width:13.4%"></div><div class="ms" style="left:86.7%" title="M2 Search works, target Mar 27"></div></div></div>
+<div class="row"><div class="name">5. Hosting</div><div class="track"><div class="bar prog" style="left:50%;width:6.7%"></div></div></div>
+<div class="today" style="left:calc(150px + (100% - 150px) * 0.567)" title="Today, Mar 18"></div>
+</div></div>
+<p class="unsched">Not scheduled: 6. Share a recipe by link.</p>
+</section>
+</main>
+<script>
+document.querySelectorAll('.toggle button').forEach(function(b){b.addEventListener('click',function(){
+  var v=b.dataset.view;
+  document.getElementById('cards').hidden=v!=='cards';
+  document.getElementById('timeline').hidden=v!=='timeline';
+  document.querySelectorAll('.toggle button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+});});
+if(location.hash==='#timeline'){document.querySelector('[data-view="timeline"]').click();}
+</script>
+</body>
+</html>

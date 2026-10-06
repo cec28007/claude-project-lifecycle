@@ -1,0 +1,11 @@
+{
+  "name": "claude-project-manager",
+  "owner": { "name": "cec28007" },
+  "plugins": [
+    {
+      "name": "project-manager",
+      "source": "./",
+      "description": "Vet ideas, write project briefs, kick off projects, and keep a live progress map for each one."
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Project maps</title>
+<style>
+:root{--bg:#f7f7f5;--card:#fff;--ink:#1d2327;--muted:#5d666d;--line:#e2e2de;--accent:#2b6cb0;--warn:#9a5b00;--warnbg:#fff4e0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15181b;--card:#1e2226;--ink:#eceeef;--muted:#a3abb2;--line:#30363b;--accent:#7fb2f0;--warn:#ffcf80;--warnbg:#3a2c12}}
+:root[data-theme="dark"]{--bg:#15181b;--card:#1e2226;--ink:#eceeef;--muted:#a3abb2;--line:#30363b;--accent:#7fb2f0;--warn:#ffcf80;--warnbg:#3a2c12}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:980px;margin:0 auto;padding:24px 16px 48px}
+h1{margin:0 0 4px;font-size:1.6rem}
+.sub{color:var(--muted);margin:0 0 24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.card h2{margin:0;font-size:1.15rem}
+.lbl{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0}
+.card p{margin:0}
+.wait{background:var(--warnbg);color:var(--warn);border-radius:6px;padding:6px 10px;font-size:.92rem}
+.links{margin-top:auto;display:flex;gap:14px;flex-wrap:wrap}
+.links a{color:var(--accent);font-weight:600;text-decoration:none}
+.links a:hover{text-decoration:underline}
+footer{margin-top:28px;color:var(--muted);font-size:.85rem}
+</style>
+</head>
+<body>
+<main>
+<h1>Project maps</h1>
+<p class="sub">One place for every project. Drawn YYYY-MM-DD.</p>
+<div class="grid">
+
+<!-- One <section class="card"> per project. Copy this block. -->
+<section class="card">
+<h2>Project name</h2>
+<p class="lbl">Next milestone</p>
+<p>M1: what is true when it lands. N steps left.</p>
+<p class="lbl">Next step</p>
+<p>The one thing that happens next.</p>
+<p class="wait">Waiting on the owner: the decision or approval, or "nothing".</p>
+<div class="links"><a href="MAP-LINK">Open map</a><a href="MAP-LINK#timeline">Timeline</a></div>
+</section>
+
+</div>
+<footer>Each map's file lives in its project's repository (docs/project-maps/). Sessions redraw a map with every merged change; a scheduled routine can redraw all of them and this page each morning.</footer>
+</main>
+</body>
+</html>

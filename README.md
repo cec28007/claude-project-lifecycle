@@ -2,10 +2,10 @@
 
 **From idea to done: vet it, plan it, set it up, track it.**
 
-Claude Code can run several projects at once. The hard part is everything around the code:
-deciding what deserves to be a project, agreeing what "done" means, setting each one up so
-sessions can work without you, and knowing at a glance where each one stands. This plugin
-handles all four steps.
+Built for **Claude Code Projects**: a project is one long-running effort, like a platform or a
+product, with many sessions working in it over weeks. After a few weeks, it gets hard for anyone,
+person or Claude, to say where things stand. This plugin makes each project its own project
+manager. Every new request goes through four steps, and the project keeps its own status current:
 
 1. **Vet the request.** Is this a project, one session, a scheduled routine, or not ready yet? Five quick tests decide, and Claude says why in one line.
 2. **Plan it.** A one-page brief: goal, finish line, parts, milestones, risks, and the few decisions only you can make. You edit it; it becomes the only plan.

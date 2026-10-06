@@ -53,7 +53,25 @@ Run the `project-map` subagent against the repository, commit `docs/project-maps
 with the kickoff pull request, publish it somewhere with a fixed link if you can, add the link
 to the project's "Where the work lives", and add a card to the hub (see `project-manager` §4).
 
-## 5. First message to the project
+## 5. Create the project yourself
+
+Don't hand the owner a form to fill in. If a browser tool is signed in to claude.ai (Claude in
+Chrome, or a built-in browser), create the project and fill every field:
+
+1. `https://claude.ai/code/projects/browse` → "New project".
+2. Name and Goal: click each field, then type.
+3. Context → "+ Add" opens a repository list. Don't type a search: the keystrokes can land in the
+   Name field. Find each repository by name and click its checkbox, then press Escape.
+4. Zoom in on the dialog and check the Name before you create. If it is wrong: click, select all, retype.
+5. Click "Create project" by element reference, not by screen position. The page moves to
+   `claude.ai/code/project/<id>`; keep that id.
+6. Open Project settings and paste the built instructions (Memory), set effort and auto-continue
+   (General), and the repositories and local-folder access (Environment). Reload and check each
+   value stayed.
+
+If no browser is signed in, the only ask is "open the browser and sign in".
+
+## 6. First message to the project
 
 "Read docs/handoffs/<file>.md and docs/project-maps/<slug>.html, then propose sessions for the
 tickets and start the first one."
@@ -63,4 +81,5 @@ tickets and start the first one."
 - Cloud sessions can't see your local skills, subagents, or notes. Put what matters in the
   repository (`.claude/skills`, `.claude/agents`, the kickoff file, the instructions).
 - Instruction changes reach new sessions only.
+- Publish the map before you create the project, so its link goes into the instructions in one pass.
 - No secrets in the instructions, the kickoff file, or the map.

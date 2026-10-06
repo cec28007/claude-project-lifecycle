@@ -61,13 +61,14 @@ Chrome, or a built-in browser), create the project and fill every field:
 1. `https://claude.ai/code/projects/browse` → "New project".
 2. Name and Goal: click each field, then type.
 3. Context → "+ Add" opens a repository list. Don't type a search: the keystrokes can land in the
-   Name field. Find each repository by name and click its checkbox, then press Escape.
+   Name field. Find each repository by name and click its checkbox, then close the list by clicking the
+   dialog's title. Don't press Escape: it closes the whole form and loses every field.
 4. Zoom in on the dialog and check the Name before you create. If it is wrong: click, select all, retype.
 5. Click "Create project" by element reference, not by screen position. The page moves to
    `claude.ai/code/project/<id>`; keep that id.
 6. Open Project settings and paste the built instructions (Memory), set effort and auto-continue
-   (General), and the repositories and local-folder access (Environment). Reload and check each
-   value stayed.
+   (General; the coordinator effort starts at Low), and the repositories, local-folder access and
+   worktrees (Environment). Reload and check each value stayed.
 
 If no browser is signed in, the only ask is "open the browser and sign in".
 

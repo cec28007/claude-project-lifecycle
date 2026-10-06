@@ -1,11 +1,13 @@
 {
-  "name": "claude-project-manager",
-  "owner": { "name": "cec28007" },
+  "name": "claude-project-lifecycle",
+  "owner": {
+    "name": "cec28007"
+  },
   "plugins": [
     {
-      "name": "project-manager",
+      "name": "project-lifecycle",
       "source": "./",
-      "description": "Vet ideas, write project briefs, kick off projects, and keep a live progress map for each one."
+      "description": "From idea to done: vet it, plan it, set it up, track it."
     }
   ]
 }

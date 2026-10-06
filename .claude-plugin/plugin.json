@@ -1,8 +1,17 @@
 {
-  "name": "project-manager",
+  "name": "project-lifecycle",
   "version": "1.0.0",
-  "description": "Vet ideas, write one-page project briefs, kick off Claude Code projects, and keep a live progress map (cards + timeline) for each one.",
-  "author": { "name": "cec28007" },
+  "description": "From idea to done: vet a request, plan it in a one-page brief, set the project up for Claude Code, and track it with a live progress map (cards + timeline).",
+  "author": {
+    "name": "cec28007"
+  },
   "license": "MIT",
-  "keywords": ["project-management", "planning", "gantt", "skills", "subagent"]
+  "keywords": [
+    "project-management",
+    "planning",
+    "project-setup",
+    "gantt",
+    "skills",
+    "subagent"
+  ]
 }
